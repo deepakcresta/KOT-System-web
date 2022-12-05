@@ -11,7 +11,6 @@ import { EditSubmenuComponent } from './edit-submenu/edit-submenu.component';
 import { MenuComponent } from './menu.component';
 import { MenuSidebarComponent } from './menu-sidebar/menu-sidebar.component';
 
-
 @NgModule({
   declarations: [
     SubMenuComponent,
@@ -22,12 +21,6 @@ import { MenuSidebarComponent } from './menu-sidebar/menu-sidebar.component';
     MenuComponent,
     MenuSidebarComponent,
   ],
-  imports: [
-    CommonModule,
-    MenuRoutingModule,
-    ReactiveFormsModule
-  ]
+  imports: [CommonModule, MenuRoutingModule, ReactiveFormsModule],
 })
-export class MenuModule { 
-
-}
+export class MenuModule {}

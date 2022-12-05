@@ -1,70 +1,67 @@
-
-              
 <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-        <p class="float-start"> Edit Submenu</p>
-      </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <p class="float-start">Edit Submenu</p>
     </div>
-    <hr />
-  
-    <div class="card">
-      <div class="card-body">
-        <div class="row">
-          <div class="col-sm-12">
-            <form [formGroup]="editForm">
-              <div class="row">
-                <div class="col-sm-4">
-                  <div class="form-group">
-                    <label>Food</label>
-                    <input
-                      type="text"
-                      formControlName="name"
-                      name="name"
-                      id="name"
-                      class="form-control"
-                      placeholder="Item Name"
-                      required
-                    />
-                    <span
-                      *ngIf="
-                        submitted ||
-                        forms['name'].dirty ||
-                        (forms['name'].touched && forms['name'].invalid)
-                      "
-                      class="info-msg text-danger"
-                    >
-                      <small
-                        *ngIf="forms['name'].errors && 
-                                                              forms['name'].errors?.['required']"
-                      >
-                        Food name is required !
-                      </small>
-                      <small *ngIf="forms['name'].errors?.['minlength']">
-                        Food name must have atleast 3 characters !
-                      </small>
-  
-                      <small *ngIf="forms['name'].errors?.['maxlength']">
-                        Food nameshould not be more than 15 characters !
-                      </small>
-                    </span>
-                  </div>
-                </div>
-                </div>
-              <div class="row">
-                <div class="col-sm-12">
-                  <button
-                    class="btn btn-outline-primary float-right"
-                    (click)="onEditMenu(editForm.value)"
+  </div>
+  <hr />
+
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-12">
+          <form [formGroup]="editForm">
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label>Food</label>
+                  <input
+                    type="text"
+                    formControlName="name"
+                    name="name"
+                    id="name"
+                    class="form-control"
+                    placeholder="Item Name"
+                    required
+                  />
+                  <span
+                    *ngIf="
+                      submitted ||
+                      forms['name'].dirty ||
+                      (forms['name'].touched && forms['name'].invalid)
+                    "
+                    class="info-msg text-danger"
                   >
-                    Edit Menu
-                  </button>
+                    <small
+                      *ngIf="forms['name'].errors && 
+                                                              forms['name'].errors?.['required']"
+                    >
+                      Food name is required !
+                    </small>
+                    <small *ngIf="forms['name'].errors?.['minlength']">
+                      Food name must have atleast 3 characters !
+                    </small>
+
+                    <small *ngIf="forms['name'].errors?.['maxlength']">
+                      Food nameshould not be more than 15 characters !
+                    </small>
+                  </span>
                 </div>
               </div>
-            </form>
-          </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <button
+                  class="btn btn-outline-primary float-right"
+                  (click)="onEditMenu(editForm.value)"
+                >
+                  Edit Menu
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
-  
+</div>

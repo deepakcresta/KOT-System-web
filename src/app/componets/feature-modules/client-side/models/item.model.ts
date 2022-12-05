@@ -1,4 +1,4 @@
 export class ItemModel {
-    name: string |undefined;
-    price: number | undefined;
+  name: string | undefined;
+  price: number | undefined;
 }

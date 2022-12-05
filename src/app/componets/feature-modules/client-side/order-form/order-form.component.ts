@@ -1,24 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { ClientService } from '../services/clientside.service';
 
 @Component({
   selector: 'app-order-form',
   templateUrl: './order-form.component.html',
-  styleUrls: ['./order-form.component.scss']
+  styleUrls: ['./order-form.component.scss'],
 })
 export class OrderFormComponent implements OnInit {
-  orderForm:FormGroup= new FormGroup({});
+  orderForm: FormGroup = new FormGroup({});
   submitted: boolean | undefined;
   isSubmitting: boolean | undefined;
 
   // forms:any;
-   
-constructor(
+
+  constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private orderService:ClientService
+    private orderService: ClientService
   ) {}
   ngOnInit(): void {
     this.orderForm = this.formBuilder.group({
@@ -39,7 +44,6 @@ constructor(
           Validators.maxLength(10),
         ],
       ],
-   
     });
   }
   get forms(): { [key: string]: AbstractControl } {
@@ -68,4 +72,3 @@ constructor(
     this.router.navigate([currentUrl]);
   }
 }
-

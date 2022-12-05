@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 export class AdminService {
   baseUrl: string = environment.baseUrl;
   loginApiEndPoint: string = '/contact';
-  registerApiEndPoint:string ='/customer';
+  registerApiEndPoint: string = '/customer';
 
   constructor(private httpClient: HttpClient) {}
   // Adding the contact of contact form to contact data base
@@ -17,13 +17,13 @@ export class AdminService {
     return this.httpClient.post<any>(
       this.baseUrl.concat(this.loginApiEndPoint),
       login
-    )
+    );
   }
 
-  registerUser(register:any):Observable<any>{
+  registerUser(register: any): Observable<any> {
     return this.httpClient.post<any>(
       this.baseUrl.concat(this.registerApiEndPoint),
       register
-    )
+    );
   }
 }

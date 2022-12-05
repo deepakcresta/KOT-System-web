@@ -22,7 +22,7 @@ export class ContactUsComponent implements OnInit {
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private contactService:ClientService
+    private contactService: ClientService
   ) {}
   ngOnInit(): void {
     this.contactForm = this.formBuilder.group({
@@ -74,8 +74,7 @@ export class ContactUsComponent implements OnInit {
           // this.toasterService.error('Error on sending Email.');
         }
       );
-    }
-    else{
+    } else {
       // this.toasterService.error('Please enter your information.');
     }
   }

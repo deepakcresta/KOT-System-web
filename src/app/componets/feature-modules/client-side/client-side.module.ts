@@ -10,7 +10,6 @@ import { TodaysSpecialComponent } from './todays-special/todays-special.componen
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
-
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
@@ -29,7 +28,6 @@ import { OrderFormComponent } from './order-form/order-form.component';
     SidebarComponent,
     OrderComponent,
     OrderFormComponent,
-    
   ],
   imports: [
     CommonModule,
@@ -40,7 +38,7 @@ import { OrderFormComponent } from './order-form/order-form.component';
     MatListModule,
     MatMenuModule,
     MatToolbarModule,
-    FormsModule
-  ]
+    FormsModule,
+  ],
 })
-export class ClientSideModule { }
+export class ClientSideModule {}

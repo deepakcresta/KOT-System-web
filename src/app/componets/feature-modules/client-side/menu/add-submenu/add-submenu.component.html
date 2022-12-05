@@ -1,138 +1,136 @@
-              
 <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-        <p class="float-start">Add New Submenu</p>
-      </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <p class="float-start">Add New Submenu</p>
     </div>
-    <hr />
-  
-    <div class="card">
-      <div class="card-body">
-        <div class="row">
-          <div class="col-sm-12">
-            <form [formGroup]="myForm">
-              <div class="row">
-                <div class="col-sm-8">
-                  <div class="form-group">
-                    <label>Submenu Name</label>
-                    <input
-                      type="text"
-                      formControlName="name"
-                      name="name"
-                      id="name"
-                      class="form-control"
-                      placeholder="Foos Name"
-                      required
-                    />
-                    <span
-                      *ngIf="
-                        submitted ||
-                        forms['name'].dirty ||
-                        (forms['name'].touched && forms['name'].invalid)
-                      "
-                      class="info-msg text-danger"
-                    >
-                      <small
-                        *ngIf="forms['name'].errors && 
-                                                              forms['name'].errors?.['required']"
-                      >
-                        Food name is required !
-                      </small>
-                      <small *ngIf="forms['name'].errors?.['minlength']">
-                        Food name must have atleast 3 characters !
-                      </small>
-  
-                      <small *ngIf="forms['name'].errors?.['maxlength']">
-                        Food nameshould not be more than 15 characters !
-                      </small>
-                    </span>
-                  </div>
-                </div>
-  
-                <div class="col-sm-8">
-                  <div class="form-group">
-                    <label>Price</label>
-                    <input
-                      type="number"
-                      formControlName="price"
-                      id="price"
-                      class="form-control"
-                      placeholder="Enter Price"
-                    />
-                    <span
-                      *ngIf="
-                        submitted ||
-                        forms['price'].dirty ||
-                        (forms['price'].touched && forms['price'].invalid)
-                      "
-                      class="info-msg text-danger"
-                    >
-                      <small
-                        *ngIf="forms['price'].errors && 
-                        forms['price'].errors?.['required']"
-                      >
-                        Price is required !
-                      </small>
-                      <small *ngIf="forms['price'].errors?.['minlength']">
-                        Price must have atleast 2 digit !
-                      </small>
-                    </span>
-                  </div>
-                </div>
-                <div class="col-sm-8">
-                    <div class="form-group">
-                      <label>submenu Id</label>
-                      <input
-                        type="text"
-                        formControlName="submenu"
-                        name="submenu"
-                        id="submenu"
-                        class="form-control"
-                        placeholder="submenu id"
-                        required
-                      />
-                      <span
-                        *ngIf="
-                          submitted ||
-                          forms['name'].dirty ||
-                          (forms['name'].touched && forms['name'].invalid)
-                        "
-                        class="info-msg text-danger"
-                      >
-                        <small
-                          *ngIf="forms['name'].errors && 
-                                                                forms['name'].errors?.['required']"
-                        >
-                          Food name is required !
-                        </small>
-                        <small *ngIf="forms['name'].errors?.['minlength']">
-                          Food name must have atleast 3 characters !
-                        </small>
-    
-                        <small *ngIf="forms['name'].errors?.['maxlength']">
-                          Food nameshould not be more than 15 characters !
-                        </small>
-                      </span>
-                    </div>
-                  </div>
-              </div>
-              
-              <div class="row">
-                <div class="d-grid col-2 p-3">
-                  <button
-                    type="button"
-                    class="mt-4 p-2 col-sm-8 btn btn-info"
-                    (click)="onAddSubmenu(myForm.value)"
+  </div>
+  <hr />
+
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-12">
+          <form [formGroup]="myForm">
+            <div class="row">
+              <div class="col-sm-8">
+                <div class="form-group">
+                  <label>Submenu Name</label>
+                  <input
+                    type="text"
+                    formControlName="name"
+                    name="name"
+                    id="name"
+                    class="form-control"
+                    placeholder="Foos Name"
+                    required
+                  />
+                  <span
+                    *ngIf="
+                      submitted ||
+                      forms['name'].dirty ||
+                      (forms['name'].touched && forms['name'].invalid)
+                    "
+                    class="info-msg text-danger"
                   >
-                    Add
-                  </button>
+                    <small
+                      *ngIf="forms['name'].errors && 
+                                                              forms['name'].errors?.['required']"
+                    >
+                      Food name is required !
+                    </small>
+                    <small *ngIf="forms['name'].errors?.['minlength']">
+                      Food name must have atleast 3 characters !
+                    </small>
+
+                    <small *ngIf="forms['name'].errors?.['maxlength']">
+                      Food nameshould not be more than 15 characters !
+                    </small>
+                  </span>
                 </div>
               </div>
-            </form>
-          </div>
+
+              <div class="col-sm-8">
+                <div class="form-group">
+                  <label>Price</label>
+                  <input
+                    type="number"
+                    formControlName="price"
+                    id="price"
+                    class="form-control"
+                    placeholder="Enter Price"
+                  />
+                  <span
+                    *ngIf="
+                      submitted ||
+                      forms['price'].dirty ||
+                      (forms['price'].touched && forms['price'].invalid)
+                    "
+                    class="info-msg text-danger"
+                  >
+                    <small
+                      *ngIf="forms['price'].errors && 
+                        forms['price'].errors?.['required']"
+                    >
+                      Price is required !
+                    </small>
+                    <small *ngIf="forms['price'].errors?.['minlength']">
+                      Price must have atleast 2 digit !
+                    </small>
+                  </span>
+                </div>
+              </div>
+              <div class="col-sm-8">
+                <div class="form-group">
+                  <label>submenu Id</label>
+                  <input
+                    type="text"
+                    formControlName="submenu"
+                    name="submenu"
+                    id="submenu"
+                    class="form-control"
+                    placeholder="submenu id"
+                    required
+                  />
+                  <span
+                    *ngIf="
+                      submitted ||
+                      forms['name'].dirty ||
+                      (forms['name'].touched && forms['name'].invalid)
+                    "
+                    class="info-msg text-danger"
+                  >
+                    <small
+                      *ngIf="forms['name'].errors && 
+                                                                forms['name'].errors?.['required']"
+                    >
+                      Food name is required !
+                    </small>
+                    <small *ngIf="forms['name'].errors?.['minlength']">
+                      Food name must have atleast 3 characters !
+                    </small>
+
+                    <small *ngIf="forms['name'].errors?.['maxlength']">
+                      Food nameshould not be more than 15 characters !
+                    </small>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="d-grid col-2 p-3">
+                <button
+                  type="button"
+                  class="mt-4 p-2 col-sm-8 btn btn-info"
+                  (click)="onAddSubmenu(myForm.value)"
+                >
+                  Add
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
-  
+</div>

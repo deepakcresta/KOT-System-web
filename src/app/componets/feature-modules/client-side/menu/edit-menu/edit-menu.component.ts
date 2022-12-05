@@ -1,14 +1,19 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { ClientService } from '../../services/clientside.service';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-edit-menu',
   templateUrl: './edit-menu.component.html',
-  styleUrls: ['./edit-menu.component.scss']
+  styleUrls: ['./edit-menu.component.scss'],
 })
 export class EditMenuComponent implements OnInit {
-  isSubmitting:boolean|undefined;
+  isSubmitting: boolean | undefined;
   editForm: FormGroup = new FormGroup({});
   submitted: boolean | undefined;
 
@@ -16,32 +21,41 @@ export class EditMenuComponent implements OnInit {
     private editmenuService: ClientService,
     private router: Router,
     private formBuilder: FormBuilder
-  ) { }
+  ) {}
 
   ngOnInit(): void {
-    this.editForm=this.formBuilder.group({
-      name: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(3), Validators.pattern("^[a-z]$")]],
-      price: ['', Validators.required, ],
+    this.editForm = this.formBuilder.group({
+      name: [
+        '',
+        [
+          Validators.required,
+          Validators.maxLength(10),
+          Validators.minLength(3),
+          Validators.pattern('^[a-z]$'),
+        ],
+      ],
+      price: ['', Validators.required],
       status: ['', Validators.required],
-      image:['',],
+      image: [''],
     });
-    
   }
- 
+
   get forms(): { [key: string]: AbstractControl } {
     return this.editForm.controls;
   }
 
-  onEditMenu(menu: any) {  //for posting the items
+  onEditMenu(menu: any) {
+    //for posting the items
     this.submitted = true;
     console.log(menu);
     this.editmenuService.addMenu(menu).subscribe(
       (response: any) => {
         this.router.navigate(['sub-menu-1']);
         console.log(response);
-      }, (error: any) =>{
+      },
+      (error: any) => {
         console.error(error);
-      }  
+      }
     );
   }
 }

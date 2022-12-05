@@ -4,15 +4,14 @@ import { FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-kot-footer',
   templateUrl: './kot-footer.component.html',
-  styleUrls: ['./kot-footer.component.scss']
+  styleUrls: ['./kot-footer.component.scss'],
 })
 export class KotFooterComponent implements OnInit {
-  contactForm:FormGroup=new FormGroup({});
-  submitted:undefined;
+  contactForm: FormGroup = new FormGroup({});
+  submitted: undefined;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-forms:any;
+  ngOnInit(): void {}
+  forms: any;
 }

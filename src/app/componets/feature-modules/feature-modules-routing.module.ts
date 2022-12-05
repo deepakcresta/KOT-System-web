@@ -4,8 +4,8 @@ import { FeatureModulesComponent } from './feature-modules.component';
 
 const routes: Routes = [
   {
-    path:'',
-    component:FeatureModulesComponent
+    path: '',
+    component: FeatureModulesComponent,
   },
   {
     path: 'client-side',
@@ -21,7 +21,6 @@ const routes: Routes = [
         (m) => m.AdminConfigurationModule
       ),
   },
- 
 ];
 
 @NgModule({

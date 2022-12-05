@@ -31,9 +31,8 @@ export class ClientService {
       this.baseUrl.concat(this.contactApiUrlEndPoint),
       contact
     );
-   
   }
-  
+
   //adding and editing the main  menu
 
   addMenu(item: ItemModel) {
@@ -51,8 +50,7 @@ export class ClientService {
   //listing all the ordrs
   listAllOrder(): Observable<OrderListRsponseModel[]> {
     return this.httpClient.get<OrderListRsponseModel[]>(
-      this.baseUrl.concat(this.orderApiUrlEndPoint),
-    
+      this.baseUrl.concat(this.orderApiUrlEndPoint)
     );
   }
 }

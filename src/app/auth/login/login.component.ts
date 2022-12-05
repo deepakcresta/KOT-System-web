@@ -8,23 +8,22 @@ import {
 import { Router } from '@angular/router';
 import { AdminService } from '../services/admin.service';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  loginForm:FormGroup= new FormGroup({});
+  loginForm: FormGroup = new FormGroup({});
   submitted: boolean | undefined;
   isSubmitting: boolean | undefined;
 
   // forms:any;
-   
-constructor(
+
+  constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private loginService:AdminService
+    private loginService: AdminService
   ) {}
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -45,7 +44,6 @@ constructor(
           Validators.maxLength(10),
         ],
       ],
-   
     });
   }
   get forms(): { [key: string]: AbstractControl } {
@@ -63,8 +61,7 @@ constructor(
           this.isSubmitting = false;
         }
       );
-    }
-    else{
+    } else {
     }
   }
   reloadComponent() {
