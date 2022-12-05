@@ -1,0 +1,97 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <p class="float-start">Add New Item</p>
+    </div>
+  </div>
+  <hr />
+
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-12">
+          <form [formGroup]="myForm">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label>Food</label>
+                <input
+                  type="text"
+                  formControlName="name"
+                  name="name"
+                  id="name"
+                  class="form-control"
+                  placeholder="Item Name"
+                  required
+                />
+                <span
+                  *ngIf="
+                    submitted ||
+                    forms['name'].dirty ||
+                    (forms['name'].touched && forms['name'].invalid)
+                  "
+                  class="info-msg text-danger"
+                >
+                  <small
+                    *ngIf="forms['name'].errors && 
+                                                              forms['name'].errors?.['required']"
+                  >
+                    Food name is required !
+                  </small>
+                  <small *ngIf="forms['name'].errors?.['minlength']">
+                    Food name must have atleast 3 characters !
+                  </small>
+
+                  <small *ngIf="forms['name'].errors?.['maxlength']">
+                    Food nameshould not be more than 15 characters !
+                  </small>
+                </span>
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label>Price</label>
+                <input
+                  type="number"
+                  formControlName="price"
+                  id="price"
+                  class="form-control"
+                  placeholder="Enter Price"
+                />
+                <span
+                  *ngIf="
+                    submitted ||
+                    forms['price'].dirty ||
+                    (forms['price'].touched && forms['price'].invalid)
+                  "
+                  class="info-msg text-danger"
+                >
+                  <small
+                    *ngIf="forms['price'].errors && 
+                        forms['price'].errors?.['required']"
+                  >
+                    Price is required !
+                  </small>
+                  <small *ngIf="forms['price'].errors?.['minlength']">
+                    Price must have atleast 2 digit !
+                  </small>
+                </span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-12">
+                <button
+                  class="btn btn-outline-primary float-right"
+                  (click)="onAddMenu(myForm.value)"
+                >
+                  Add Item
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

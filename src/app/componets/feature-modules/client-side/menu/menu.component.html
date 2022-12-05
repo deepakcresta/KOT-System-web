@@ -1,0 +1,64 @@
+<div class="header-box px-2 d-flex justify-content-between">
+    <h1 class="fs-4 my-4" [routerLink]="'/home'">
+      <span class="text-white roungsnded shadow px-2 me-2">Our Menu</span>
+    </h1>
+    <button class="btn d-md-none d-block close close-btn px-1 py-0 text-white">
+      <i class="fal fa-stream"></i>
+    </button>
+  </div>
+  
+  <ul class="list-unstyled px-2">
+    <tr *ngFor="let data of menuResponse; let i = index">
+        <!-- <td>{{ i + 1 }}</td> -->
+        <!-- <td>{{ data.menuId }}</td> -->
+    <li class="" routerLink="add-menu"   ><a href="javascript:void(0);" class="text-decoration-none px-4 py-2 d-block"> <i class="fal fa-user"></i> {{ data.foodMenu }}</a></li>
+
+        <!-- <td> <button class="btn btn-success float-end" routerLink="add-menu" style="width:175px;background-color:#9e406e">{{ data.foodMenu }}</button></td> -->
+      </tr>
+    <li class="active" routerLink="/home" ><a href="javascript:void(0);" class="text-decoration-none px-4 py-2 d-block"> <i class="fal fa-home"></i> Dashboard</a></li>
+    <li class="" [routerLink]="'/home'" ><a href="javascript:void(0);" class="text-decoration-none px-4 py-2 d-block"> <i class="fal fa-user"></i> Employees</a></li>
+  </ul>
+      
+    
+    
+    
+    
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-sm-6">
+                <h2 style="color:#0b0206;">Our Menu </h2>
+            </div>
+            <div class="col-sm-6">
+                <button class="btn btn-success float-end" routerLink="add-menu">Add New Menu</button>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-2">
+                <table class="table table-striped text-center">
+                    <thead>
+                      <tr>
+                        <!-- <th>S.N</th>
+                        <th>MenuId</th> -->
+                        <!-- <th>MenuName</th> -->
+                      </tr>
+                    </thead>
+                    <tbody style="background-color:#e8c7d7;
+                ">
+                      <tr *ngFor="let data of menuResponse; let i = index">
+                        <!-- <td>{{ i + 1 }}</td> -->
+                        <!-- <td>{{ data.menuId }}</td> -->
+                        <td> <button class="btn btn-success float-end" routerLink="add-menu" style="width:175px;background-color:#9e406e">{{ data.foodMenu }}</button></td>
+                      </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <button class="btn btn-success float-end" routerLink="edit-menu">Edit Menu</button>
+            </div>
+        </div>
+    </div>
+
+    

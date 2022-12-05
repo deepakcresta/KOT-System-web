@@ -1,0 +1,340 @@
+<section class="h-100 bg-dark">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col">
+          <div class="card card-registration my-4">
+            <div class="row g-0">
+              <div class="col-xl-6 d-none d-xl-block">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
+                  alt="Sample photo" class="img-fluid"
+                  style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+              </div>
+              <div class="col-xl-6">
+                <form [formGroup]="registerForm">
+                <div class="card-body p-md-5 text-black">
+                  <h3 class="mb-5 text-uppercase">User registration form</h3>
+                  <div class="row">
+                    <div class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <input
+                            type="text"
+                            formControlName="firstName"
+                            name="firstName"
+                            id="firstName"
+                            class="form-control"
+                            placeholder=" First Name"
+                            required
+                            style="
+                              border: none;
+                              box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);
+                              height: 50px;
+                            "
+                          />
+                          <span
+                            *ngIf="
+                              submitted ||
+                              forms['firstName'].dirty ||
+                              (forms['firstName'].touched && forms['firstName'].invalid)
+                            "
+                            class="info-msg text-danger"
+                          >
+                            <small
+                              *ngIf="forms['firstName'].errors && 
+                                          forms['firstName'].errors?.['required']"
+                            >
+                              *Name is required !
+                            </small>
+                            <small *ngIf="forms['firstName'].errors?.['minlength']">
+                              *You name must have atleast 3 characters !
+                            </small>
+                            <small *ngIf="forms['firstName'].errors?.['maxlength']">
+                              *Your name should not be more than 60 chracters !
+                            </small>
+                            <small *ngIf="forms['firstName'].errors?.['pattern']">
+                              *Your name should contain alphabet letters !
+                            </small>
+                          </span>
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <input
+                        type="text"
+                        formControlName="lastName"
+                        name="lastName"
+                        id="lastNamee"
+                        class="form-control"
+                        placeholder="Last Name"
+                        required
+                        style="
+                          border: none;
+                          box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);
+                          height: 50px;
+                        "
+                      />
+                      <span
+                        *ngIf="
+                          submitted ||
+                          forms['lastName'].dirty ||
+                          (forms['lastName'].touched && forms['lastName'].invalid)
+                        "
+                        class="info-msg text-danger"
+                      >
+                        <small
+                          *ngIf="forms['lastName'].errors && 
+                                      forms['lastName'].errors?.['required']"
+                        >
+                          * Last Name is required !
+                        </small>
+                        <small *ngIf="forms['lastName'].errors?.['minlength']">
+                          *You Last Name must have atleast 3 characters !
+                        </small>
+                        <small *ngIf="forms['lastName'].errors?.['maxlength']">
+                          *Your Last Name should not be more than 60 chracters !
+                        </small>
+                        <small *ngIf="forms['lastName'].errors?.['pattern']">
+                          *Your Last Name should contain alphabet letters !
+                        </small>
+                      </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group p-2">
+                        <input
+                          type="text"
+                          formControlName="phoneNumber"
+                          name="phoneNumber"
+                          class="form-control"
+                          placeholder="Phone Number"
+                          style="
+                            border: none;
+                            box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);
+                            height: 50px;
+                          "
+                          required
+                        />
+                        <span
+                          *ngIf="
+                            submitted ||
+                            forms['phoneNumber'].dirty ||
+                            (forms['phoneNumber'].touched &&
+                              forms['phoneNumber'].invalid)
+                          "
+                          class="info-msg text-danger"
+                        >
+                          <small
+                            *ngIf="forms['phoneNumber'].errors && 
+                                        forms['phoneNumber'].errors?.['required']"
+                          >
+                            *Phone Number is required !
+                          </small>
+                          <small *ngIf="forms['phoneNumber'].errors?.['minlength']">
+                            *Phone Number should be 10 digits!
+                          </small>
+                          <small *ngIf="forms['phoneNumber'].errors?.['pattern']">
+                            * Phone number should contain nummeic value!
+                          </small>
+                          <small *ngIf="forms['phoneNumber'].errors?.['maxlength']">
+                            *Phone Number should not be more than 10 digits!
+                          </small>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group p-2">
+                        <input
+                          type="text"
+                          formControlName="address"
+                          name="address"
+                          id="address"
+                          class="form-control"
+                          placeholder=" Address"
+                          required
+                          style="
+                            border: none;
+                            box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);
+                            height: 50px;
+                          "
+                        />
+                        <span
+                          *ngIf="
+                            submitted ||
+                            forms['address'].dirty ||
+                            (forms['address'].touched && forms['address'].invalid)
+                          "
+                          class="info-msg text-danger"
+                        >
+                          <small
+                            *ngIf="forms['address'].errors && 
+                                        forms['address'].errors?.['required']"
+                          >
+                            *Name is required !
+                          </small>
+                          <small *ngIf="forms['address'].errors?.['minlength']">
+                            *You name must have atleast 3 characters !
+                          </small>
+                          <small *ngIf="forms['address'].errors?.['maxlength']">
+                            *Your name should not be more than 60 chracters !
+                          </small>
+                          <small *ngIf="forms['address'].errors?.['pattern']">
+                            *Your name should contain alphabet letters !
+                          </small>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group p-2 mt-4">
+                        <input
+                          type="email"
+                          formControlName="email"
+                          name="email"
+                          class="form-control"
+                          required
+                          style="
+                            border: none;
+                            box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);
+                            height: 5z0px;
+                          "
+                          placeholder="Email"
+                        />
+                        <span
+                          *ngIf="
+                            submitted ||
+                            forms['email'].dirty ||
+                            (forms['email'].touched && forms['email'].invalid)
+                          "
+                          class="info-msg text-danger"
+                        >
+                          <small
+                            *ngIf="forms['email'].errors && 
+                                          forms['email'].errors?.['required']"
+                          >
+                            * Email is required
+                          </small>
+                          <small *ngIf="forms['email'].errors?.['pattern']">
+                            *Invalid Email enter the valid email!
+                          </small>
+                          <small *ngIf="forms['email'].errors?.['minlength']">
+                            *Email should be atleast 8 characters!
+                          </small>
+                          <small *ngIf="forms['phoneNumber'].errors?.['maxlength']">
+                            *Email should not be more thab 80 characters!
+                          </small>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group p-2">
+                        <input
+                          type="text"
+                          formControlName="userName"
+                          name="userName"
+                          id="userName"
+                          class="form-control"
+                          placeholder=" User Name"
+                          required
+                          style="
+                            border: none;
+                            box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);
+                            height: 50px;
+                          "
+                        />
+                        <span
+                          *ngIf="
+                            submitted ||
+                            forms['userName'].dirty ||
+                            (forms['userName'].touched && forms['userName'].invalid)
+                          "
+                          class="info-msg text-danger"
+                        >
+                          <small
+                            *ngIf="forms['userName'].errors && 
+                                        forms['userName'].errors?.['required']"
+                          >
+                            *Name is required !
+                          </small>
+                          <small *ngIf="forms['userName'].errors?.['minlength']">
+                            *You name must have atleast 3 characters !
+                          </small>
+                          <small *ngIf="forms['userName'].errors?.['maxlength']">
+                            *Your name should not be more than 60 chracters !
+                          </small>
+                          <small *ngIf="forms['userName'].errors?.['pattern']">
+                            *Your name should contain alphabet letters !
+                          </small>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group p-2 mt-4">
+                        <input
+                          type="password"
+                          formControlName="password"
+                          name="password"
+                          class="form-control"
+                          required
+                          style="
+                            border: none;
+                            box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);
+                            height: 5z0px;
+                          "
+                          placeholder="password"
+                        />
+                        <span
+                          *ngIf="
+                            submitted ||
+                            forms['password'].dirty ||
+                            (forms['password'].touched && forms['password'].invalid)
+                          "
+                          class="info-msg text-danger"
+                        >
+                          <small
+                            *ngIf="forms['password'].errors && 
+                                          forms['password'].errors?.['required']"
+                          >
+                            * password is required
+                          </small>
+                          <small *ngIf="forms['password'].errors?.['pattern']">
+                            *Invalid password enter the valid password!
+                          </small>
+                          <small *ngIf="forms['password'].errors?.['minlength']">
+                            *password should be atleast 8 characters!
+                          </small>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="d-flex justify-content-end pt-3">
+                    <button
+                    type="button"
+                    class="mt-4 p-2 col-sm-5 btn btn-info btn-lg ms-2 pt-3">
+                    Reset
+                  </button>
+                    <button
+                    type="button"
+                    class="mt-4 p-2 col-sm-5 btn btn-warning btn-lg ms-2"
+                    (click)="onLoginForm(registerForm.value)"
+                  >
+                    Send
+                  </button>
+                  </div>
+                </div>
+              </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

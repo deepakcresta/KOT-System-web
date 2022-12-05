@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="col-sm-6">
+    <button class="btn btn-success float-end" routerLink="menu/add-submenu">
+      Add New Submenu
+    </button>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>S.N</th>
+        <th>submenu Id</th>
+        <th>Food Name</th>
+        <th>Price</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let submenu of submenuResponse; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ submenu.submenuId }}</td>
+        <td>{{ submenu.submenuName }}</td>
+        <td>{{ submenu.price }}</td>
+        <td>
+          <button [routerLink]="'/feature-modules/client-side/order-food'"
+            title="Edit User Information"
+            class="btn btn-primary"
+            type="button"
+          >
+            <i class="fa-solid fa-pen-to-square"> Order</i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
