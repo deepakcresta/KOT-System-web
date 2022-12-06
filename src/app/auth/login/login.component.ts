@@ -56,6 +56,7 @@ export class LoginComponent implements OnInit {
       this.loginService.addUser(login).subscribe(
         (response: any) => {
           this.isSubmitting = false;
+          this.loginForm.reset();
         },
         (error: any) => {
           this.isSubmitting = false;
