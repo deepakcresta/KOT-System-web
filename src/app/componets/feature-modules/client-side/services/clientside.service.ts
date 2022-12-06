@@ -36,10 +36,10 @@ export class ClientService {
 
   //adding and editing the main  menu
 
-  addMenu(item: ItemModel) {
-    return this.httpClient.post<ItemModel>(
+  addMenu(menu: any): Observable<any> {
+    return this.httpClient.post<any>(
       this.baseUrl.concat(this.menuApiUrlEndPoint),
-      item
+      menu
     );
   }
   //listing the all menu

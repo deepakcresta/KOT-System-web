@@ -15,7 +15,7 @@ import { ClientService } from '../../services/clientside.service';
 })
 export class AddMenuComponent implements OnInit {
   isSubmitting: boolean | undefined;
-  myForm: FormGroup = new FormGroup({});
+  menuForm: FormGroup = new FormGroup({});
   submitted: boolean | undefined;
 
   constructor(
@@ -25,8 +25,8 @@ export class AddMenuComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.myForm = this.formBuilder.group({
-      name: [
+    this.menuForm = this.formBuilder.group({
+      menu: [
         '',
         [
           Validators.required,
@@ -35,29 +35,25 @@ export class AddMenuComponent implements OnInit {
           Validators.pattern('^[a-z]$'),
         ],
       ],
-      price: [
-        '',
-        Validators.required,
-        Validators.maxLength(10),
-        Validators.minLength(3),
-      ],
     });
   }
 
   get forms(): { [key: string]: AbstractControl } {
-    return this.myForm.controls;
+    return this.menuForm.controls;
   }
 
-  onAddMenu(item: any) {
+  onAddMenu(menu: any) {
     this.submitted = true;
-    console.log(item);
-    if (this.myForm.valid) {
-      this.addmenuService.addMenu(item).subscribe(
+    console.log(menu);
+    if (this.menuForm.valid) {
+      this.addmenuService.addMenu(menu).subscribe(
         (response: any) => {
           this.isSubmitting = false;
+          console.log("menu added successfully.")
         },
         (error: any) => {
           this.isSubmitting = false;
+          console.log("Error on adding the menu")
         }
       );
     } else {

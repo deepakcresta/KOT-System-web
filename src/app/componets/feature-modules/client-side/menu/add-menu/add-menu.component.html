@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12">
-      <p class="float-start">Add New Item</p>
+    <div class="col-sm-8">
+      <p class="float-start">Add  New Menu</p>
     </div>
   </div>
   <hr />
@@ -10,82 +10,53 @@
     <div class="card-body">
       <div class="row">
         <div class="col-sm-12">
-          <form [formGroup]="myForm">
+          <form [formGroup]="menuForm">
             <div class="col-sm-4">
               <div class="form-group">
-                <label>Food</label>
+                <label>Menu</label>
                 <input
                   type="text"
-                  formControlName="name"
-                  name="name"
-                  id="name"
+                  formControlName="menu"
+                  menu="menu"
+                  id="menu"
                   class="form-control"
-                  placeholder="Item Name"
+                  placeholder="Enter the new menu"
                   required
                 />
                 <span
                   *ngIf="
                     submitted ||
-                    forms['name'].dirty ||
-                    (forms['name'].touched && forms['name'].invalid)
+                    forms['menu'].dirty ||
+                    (forms['menu'].touched && forms['menu'].invalid)
                   "
                   class="info-msg text-danger"
                 >
                   <small
-                    *ngIf="forms['name'].errors && 
-                                                              forms['name'].errors?.['required']"
+                    *ngIf="forms['menu'].errors && 
+                                                              forms['menu'].errors?.['required']"
                   >
-                    Food name is required !
+                    Food menu is required !
                   </small>
-                  <small *ngIf="forms['name'].errors?.['minlength']">
-                    Food name must have atleast 3 characters !
+                  <small *ngIf="forms['menu'].errors?.['minlength']">
+                    Food menu must have atleast 3 characters !
                   </small>
 
-                  <small *ngIf="forms['name'].errors?.['maxlength']">
-                    Food nameshould not be more than 15 characters !
+                  <small *ngIf="forms['menu'].errors?.['maxlength']">
+                    Food menus hould not be more than 15 characters !
                   </small>
                 </span>
               </div>
             </div>
 
-            <div class="col-sm-4">
-              <div class="form-group">
-                <label>Price</label>
-                <input
-                  type="number"
-                  formControlName="price"
-                  id="price"
-                  class="form-control"
-                  placeholder="Enter Price"
-                />
-                <span
-                  *ngIf="
-                    submitted ||
-                    forms['price'].dirty ||
-                    (forms['price'].touched && forms['price'].invalid)
-                  "
-                  class="info-msg text-danger"
-                >
-                  <small
-                    *ngIf="forms['price'].errors && 
-                        forms['price'].errors?.['required']"
-                  >
-                    Price is required !
-                  </small>
-                  <small *ngIf="forms['price'].errors?.['minlength']">
-                    Price must have atleast 2 digit !
-                  </small>
-                </span>
-              </div>
-            </div>
+      
 
             <div class="row">
               <div class="col-sm-12">
                 <button
                   class="btn btn-outline-primary float-right"
-                  (click)="onAddMenu(myForm.value)"
+                  (click)="onAddMenu(menuForm.value)"
                 >
-                  Add Item
+                  Add Menu
                 </button>
               </div>
             </div>
