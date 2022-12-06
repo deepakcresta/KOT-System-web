@@ -11,10 +11,10 @@
   <tbody>
     <tr *ngFor="let order of orderResponse; let i = index">
       <td>{{ i + 1 }}</td>
-      <td>{{ order.id }}</td>
+      <td>{{ order.tabledNo }}</td>
       <td>{{ order.orderName }}</td>
       <td>{{ order.quantity }}</td>
-      <td>{{ order.time } }</td>
+      <td>{{ order.createDteTime }}</td>
     </tr>
   </tbody>
 </table>

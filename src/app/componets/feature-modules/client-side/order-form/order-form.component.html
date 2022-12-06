@@ -15,11 +15,11 @@
                       <div class="form-group p-2">
                         <input
                           type="text"
-                          formControlName="userName"
-                          name="userName"
-                          id="userName"
+                          formControlName="orderName"
+                          name="orderName"
+                          id="orderName"
                           class="form-control"
-                          placeholder=" User Name"
+                          placeholder="Order Name"
                           required
                           style="
                             border: none;
@@ -30,29 +30,29 @@
                         <span
                           *ngIf="
                             submitted ||
-                            forms['userName'].dirty ||
-                            (forms['userName'].touched &&
-                              forms['userName'].invalid)
+                            forms['orderName'].dirty ||
+                            (forms['orderName'].touched &&
+                              forms['orderName'].invalid)
                           "
                           class="info-msg text-danger"
                         >
                           <small
-                            *ngIf="forms['userName'].errors && 
-                                          forms['userName'].errors?.['required']"
+                            *ngIf="forms['orderName'].errors && 
+                                          forms['orderName'].errors?.['required']"
                           >
                             *Name is required !
                           </small>
                           <small
-                            *ngIf="forms['userName'].errors?.['minlength']"
+                            *ngIf="forms['orderName'].errors?.['minlength']"
                           >
                             *You name must have atleast 3 characters !
                           </small>
                           <small
-                            *ngIf="forms['userName'].errors?.['maxlength']"
+                            *ngIf="forms['orderName'].errors?.['maxlength']"
                           >
                             *Your name should not be more than 60 chracters !
                           </small>
-                          <small *ngIf="forms['userName'].errors?.['pattern']">
+                          <small *ngIf="forms['orderName'].errors?.['pattern']">
                             *Your name should contain alphabet letters !
                           </small>
                         </span>
@@ -63,9 +63,9 @@
                     <div class="col-sm-8">
                       <div class="form-group p-2 mt-4">
                         <input
-                          type="password"
-                          formControlName="password"
-                          name="password"
+                          type="tabledNo"
+                          formControlName="tabledNo"
+                          name="tabledNo"
                           class="form-control"
                           required
                           style="
@@ -73,30 +73,30 @@
                             box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);
                             height: 5z0px;
                           "
-                          placeholder="password"
+                          placeholder="Enter the table Number"
                         />
                         <span
                           *ngIf="
                             submitted ||
-                            forms['password'].dirty ||
-                            (forms['password'].touched &&
-                              forms['password'].invalid)
+                            forms['tabledNo'].dirty ||
+                            (forms['tabledNo'].touched &&
+                              forms['tabledNo'].invalid)
                           "
                           class="info-msg text-danger"
                         >
                           <small
-                            *ngIf="forms['password'].errors && 
-                                            forms['password'].errors?.['required']"
+                            *ngIf="forms['tabledNo'].errors && 
+                                            forms['tabledNo'].errors?.['required']"
                           >
-                            * password is required
+                            * tableNo is required
                           </small>
-                          <small *ngIf="forms['password'].errors?.['pattern']">
-                            *Invalid password enter the valid password!
+                          <small *ngIf="forms['tabledNo'].errors?.['pattern']">
+                            *Invalid tableNo enter the valid tableNo!
                           </small>
                           <small
-                            *ngIf="forms['password'].errors?.['minlength']"
+                            *ngIf="forms['tabledNo'].errors?.['minlength']"
                           >
-                            *password should be atleast 8 characters!
+                            *tableNo should be atleast 8 characters!
                           </small>
                         </span>
                       </div>
@@ -107,9 +107,9 @@
                     <div class="col-sm-8">
                       <div class="form-group p-2 mt-4">
                         <input
-                          type="password"
-                          formControlName="password"
-                          name="password"
+                          type="number"
+                          formControlName="quantity"
+                          name="quantity"
                           class="form-control"
                           required
                           style="
@@ -117,30 +117,30 @@
                             box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);
                             height: 5z0px;
                           "
-                          placeholder="password"
+                          placeholder="Select  quanantity"
                         />
                         <span
                           *ngIf="
                             submitted ||
-                            forms['password'].dirty ||
-                            (forms['password'].touched &&
-                              forms['password'].invalid)
+                            forms['quantity'].dirty ||
+                            (forms['quantity'].touched &&
+                              forms['quantity'].invalid)
                           "
                           class="info-msg text-danger"
                         >
                           <small
-                            *ngIf="forms['password'].errors && 
-                                              forms['password'].errors?.['required']"
+                            *ngIf="forms['quantity'].errors && 
+                                              forms['quantity'].errors?.['required']"
                           >
-                            * password is required
+                            * tableNo is required
                           </small>
-                          <small *ngIf="forms['password'].errors?.['pattern']">
-                            *Invalid password enter the valid password!
+                          <small *ngIf="forms['quantity'].errors?.['pattern']">
+                            *Invalid tableNo enter the valid tableNo!
                           </small>
                           <small
-                            *ngIf="forms['password'].errors?.['minlength']"
+                            *ngIf="forms['quantity'].errors?.['minlength']"
                           >
-                            *password should be atleast 8 characters!
+                            *tableNo should be atleast 8 characters!
                           </small>
                         </span>
                       </div>

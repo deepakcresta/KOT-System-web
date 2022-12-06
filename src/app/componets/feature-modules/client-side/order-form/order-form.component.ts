@@ -27,7 +27,7 @@ export class OrderFormComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     this.orderForm = this.formBuilder.group({
-      userName: [
+      orderName: [
         undefined,
         [
           Validators.required,
@@ -36,7 +36,15 @@ export class OrderFormComponent implements OnInit {
           Validators.pattern('^[a-z A-Z]{3,60}$'),
         ],
       ],
-      password: [
+      tabledNo: [
+        undefined,
+        [
+          Validators.required,
+          Validators.minLength(1),
+          Validators.maxLength(10),
+        ],
+      ],
+      quantity: [
         undefined,
         [
           Validators.required,
@@ -49,21 +57,22 @@ export class OrderFormComponent implements OnInit {
   get forms(): { [key: string]: AbstractControl } {
     return this.orderForm.controls;
   }
-  orderFood(logine: any) {
-    // this.submitted = true;
-    // console.log(login);
-    // if (this.loginForm.valid) {
-    //   this.loginService.addUser(login).subscribe(
-    //     (response: any) => {
-    //       this.isSubmitting = false;
-    //     },
-    //     (error: any) => {
-    //       this.isSubmitting = false;
-    //     }
-    //   );
-    // }
-    // else{
-    // }
+  orderFood(order: any) {
+    this.submitted = true;
+    console.log(order);
+    if (this.orderForm.valid) {
+      this.orderService.orderFood(order).subscribe(
+        (response: any) => {
+          this.isSubmitting = false;
+          console.log('Food order succesfully', response);
+        },
+        (error: any) => {
+          this.isSubmitting = false;
+          console.log('Error on ordering the food', error);
+        }
+      );
+    } else {
+    }
   }
   reloadComponent() {
     let currentUrl = this.router.url;

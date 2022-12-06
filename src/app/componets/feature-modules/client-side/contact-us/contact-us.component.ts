@@ -66,17 +66,15 @@ export class ContactUsComponent implements OnInit {
       this.contactService.addContact(contact).subscribe(
         (response: any) => {
           this.isSubmitting = false;
-          // this.toasterService.success('Email Send Successfully.');
-          // this.contactService.sendEmail(contact).subscribe();
+          console.log("Contact added successfully");
+        
         },
         (error: any) => {
           this.isSubmitting = false;
-          // this.toasterService.error('Error on sending Email.');
+         console.log("Error on sending the contact ")
         }
       );
-    } else {
-      // this.toasterService.error('Please enter your information.');
-    }
+    } 
   }
   reloadComponent() {
     let currentUrl = this.router.url;

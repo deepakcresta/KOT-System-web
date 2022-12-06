@@ -13,6 +13,7 @@ export class ClientService {
   menuApiUrlEndPoint: string = '/menu';
   contactApiUrlEndPoint: string = 'contact';
   orderApiUrlEndPoint: string = 'order';
+  orderFoodApiUrlEndpPoint:string= 'order';
 
   onOrderItem(): Observable<ItemModel> {
     throw new Error('Method not implemented.');
@@ -53,4 +54,13 @@ export class ClientService {
       this.baseUrl.concat(this.orderApiUrlEndPoint)
     );
   }
+  //ordering the food
+  orderFood(order: any): Observable<any> {
+    return this.httpClient.post<any>(
+      this.baseUrl.concat(this.orderFoodApiUrlEndpPoint),
+      order
+    );
+  }
+
+
 }
