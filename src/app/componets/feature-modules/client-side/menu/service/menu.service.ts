@@ -15,14 +15,36 @@ export class MenuService {
 
   constructor(private httpClient: HttpClient) {}
 
+  listAllSubmenu(): Observable<SubMenuResponseListModel[]> {
+    return this.httpClient.get<SubMenuResponseListModel[]>(
+      this.baseUrl.concat(this.submenuApiUrlEndPoint)
+    );
+  }
+  addSubmenu(submenu: any): Observable<any> {
+    return this.httpClient.post<any>(
+      this.baseUrl.concat(this.submenuApiUrlEndPoint),
+      submenu
+    );
+  }
+
+  //adding and editing the main  menu
+  addMenu(menu: any): Observable<any> {
+    return this.httpClient.post<any>(
+      this.baseUrl.concat(this.menuApiUrlEndPoint),
+      menu
+    );
+  }
+  //listing the all menu
   listAllMenu(): Observable<MenuListResponseModel[]> {
     return this.httpClient.get<MenuListResponseModel[]>(
       this.baseUrl.concat(this.menuApiUrlEndPoint)
     );
   }
-  listAllSubmenu(): Observable<SubMenuResponseListModel[]> {
-    return this.httpClient.get<SubMenuResponseListModel[]>(
-      this.baseUrl.concat(this.submenuApiUrlEndPoint)
+
+  editMenu(submenu: any): Observable<any> {
+    return this.httpClient.post<any>(
+      this.baseUrl.concat(this.submenuApiUrlEndPoint),
+      submenu
     );
   }
 }

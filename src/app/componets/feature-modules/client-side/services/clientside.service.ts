@@ -10,18 +10,10 @@ import { OrderListRsponseModel } from '../models/order-list-response.model';
   providedIn: 'root',
 })
 export class ClientService {
-  menuApiUrlEndPoint: string = '/menu';
+  menuApiUrlEndPoint: string = 'menu';
   contactApiUrlEndPoint: string = 'contact';
   orderApiUrlEndPoint: string = 'order';
-  orderFoodApiUrlEndpPoint:string= 'order';
-
-  onOrderItem(): Observable<ItemModel> {
-    throw new Error('Method not implemented.');
-  }
-
-  editItem({ item }: { item: any }): void {
-    throw new Error('Method not implemented.');
-  }
+  orderFoodApiUrlEndpPoint: string = 'order';
 
   baseUrl: string = environment.baseUrl;
   constructor(private httpClient: HttpClient) {}
@@ -31,21 +23,6 @@ export class ClientService {
     return this.httpClient.post<any>(
       this.baseUrl.concat(this.contactApiUrlEndPoint),
       contact
-    );
-  }
-
-  //adding and editing the main  menu
-
-  addMenu(menu: any): Observable<any> {
-    return this.httpClient.post<any>(
-      this.baseUrl.concat(this.menuApiUrlEndPoint),
-      menu
-    );
-  }
-  //listing the all menu
-  listAllMenu(): Observable<MenuListResponseModel[]> {
-    return this.httpClient.get<MenuListResponseModel[]>(
-      this.baseUrl.concat(this.menuApiUrlEndPoint)
     );
   }
   //listing all the ordrs
@@ -61,6 +38,4 @@ export class ClientService {
       order
     );
   }
-
-
 }

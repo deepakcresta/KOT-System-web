@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { KotFooterComponent } from './componets/feature-modules/client-side/kot-footer/kot-footer.component';
 import { NavbarComponent } from './componets/feature-modules/client-side/navbar/navbar.component';
 import { MenuModule } from "./componets/feature-modules/client-side/menu/menu.module";
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         NavbarComponent,
-        KotFooterComponent
+        KotFooterComponent,
+        PageNotFoundComponent
     ],
     providers: [],
     bootstrap: [AppComponent],

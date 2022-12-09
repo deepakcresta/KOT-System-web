@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 import {
   AbstractControl,
   FormBuilder,
@@ -7,7 +8,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { ClientService } from '../../services/clientside.service';
+import { MenuService } from '../service/menu.service';
 @Component({
   selector: 'app-add-menu',
   templateUrl: './add-menu.component.html',
@@ -19,20 +20,20 @@ export class AddMenuComponent implements OnInit {
   submitted: boolean | undefined;
 
   constructor(
-    private addmenuService: ClientService,
+    private addmenuService: MenuService,
     private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
     this.menuForm = this.formBuilder.group({
-      menu: [
+      foodMenu: [
         '',
         [
           Validators.required,
           Validators.maxLength(10),
           Validators.minLength(3),
-          Validators.pattern('^[a-z]$'),
         ],
       ],
     });
@@ -44,19 +45,18 @@ export class AddMenuComponent implements OnInit {
 
   onAddMenu(menu: any) {
     this.submitted = true;
-    console.log(menu);
     if (this.menuForm.valid) {
       this.addmenuService.addMenu(menu).subscribe(
         (response: any) => {
           this.isSubmitting = false;
-          console.log("menu added successfully.")
+          this.menuForm.reset();
+          console.log('menu added successfully.');
         },
         (error: any) => {
           this.isSubmitting = false;
-          console.log("Error on adding the menu")
+          console.log('Error on adding the menu');
         }
       );
-    } else {
     }
   }
 }

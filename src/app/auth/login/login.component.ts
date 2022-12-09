@@ -27,23 +27,15 @@ export class LoginComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      userName: [
+      email: [
         undefined,
         [
           Validators.required,
           Validators.maxLength(60),
           Validators.minLength(3),
-          Validators.pattern('^[a-z A-Z]{3,60}$'),
         ],
       ],
-      password: [
-        undefined,
-        [
-          Validators.required,
-          Validators.minLength(4),
-          Validators.maxLength(10),
-        ],
-      ],
+      password: [undefined, [Validators.required]],
     });
   }
   get forms(): { [key: string]: AbstractControl } {
@@ -51,24 +43,20 @@ export class LoginComponent implements OnInit {
   }
   onLoginForm(login: any) {
     this.submitted = true;
-    console.log(login);
     if (this.loginForm.valid) {
       this.loginService.addUser(login).subscribe(
         (response: any) => {
+          console.log('Login Succcessful');
+          this.router.navigate(['feature-modules/client-side/home']);
           this.isSubmitting = false;
           this.loginForm.reset();
         },
         (error: any) => {
           this.isSubmitting = false;
+          console.log('unable to login');
         }
       );
     } else {
     }
-  }
-  reloadComponent() {
-    let currentUrl = this.router.url;
-    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-    this.router.onSameUrlNavigation = 'reload';
-    this.router.navigate([currentUrl]);
   }
 }

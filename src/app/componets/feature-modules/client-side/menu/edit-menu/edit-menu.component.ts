@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { ClientService } from '../../services/clientside.service';
 import { Router } from '@angular/router';
+import { MenuService } from '../service/menu.service';
 @Component({
   selector: 'app-edit-menu',
   templateUrl: './edit-menu.component.html',
@@ -18,7 +19,7 @@ export class EditMenuComponent implements OnInit {
   submitted: boolean | undefined;
 
   constructor(
-    private editmenuService: ClientService,
+    private editmenuService: MenuService,
     private router: Router,
     private formBuilder: FormBuilder
   ) {}
@@ -48,7 +49,7 @@ export class EditMenuComponent implements OnInit {
     //for posting the items
     this.submitted = true;
     console.log(menu);
-    this.editmenuService.addMenu(menu).subscribe(
+    this.editmenuService.editMenu(menu).subscribe(
       (response: any) => {
         this.router.navigate(['sub-menu-1']);
         console.log(response);

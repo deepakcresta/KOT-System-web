@@ -8,6 +8,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { ClientService } from '../../services/clientside.service';
+import { MenuService } from '../service/menu.service';
 @Component({
   selector: 'app-edit-submenu',
   templateUrl: './edit-submenu.component.html',
@@ -19,7 +20,7 @@ export class EditSubmenuComponent implements OnInit {
   submitted: boolean | undefined;
 
   constructor(
-    private addmenuService: ClientService,
+    private addmenuService: MenuService,
     private router: Router,
     private formBuilder: FormBuilder
   ) {}
@@ -48,11 +49,11 @@ export class EditSubmenuComponent implements OnInit {
     return this.myForm.controls;
   }
 
-  onEditSubmenu(item: any) {
+  onEditSubmenu(submenu: any) {
     this.submitted = true;
-    console.log(item);
+    console.log(submenu);
     if (this.myForm.valid) {
-      this.addmenuService.addMenu(item).subscribe(
+      this.addmenuService.editMenu(submenu).subscribe(
         (response: any) => {
           this.isSubmitting = false;
         },
@@ -60,7 +61,7 @@ export class EditSubmenuComponent implements OnInit {
           this.isSubmitting = false;
         }
       );
-    } else {
-    }
   }
+}
+
 }

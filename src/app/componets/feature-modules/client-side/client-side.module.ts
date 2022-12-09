@@ -6,7 +6,6 @@ import { ClientSideComponent } from './client-side.component';
 import { HomeComponent } from './home/home.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AboutUsComponent } from './about-us/about-us.component';
-import { TodaysSpecialComponent } from './todays-special/todays-special.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
@@ -24,7 +23,6 @@ import { OrderFormComponent } from './order-form/order-form.component';
     HomeComponent,
     ContactUsComponent,
     AboutUsComponent,
-    TodaysSpecialComponent,
     SidebarComponent,
     OrderComponent,
     OrderFormComponent,

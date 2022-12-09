@@ -10,40 +10,41 @@
     <div class="card-body">
       <div class="row">
         <div class="col-sm-12">
-          <form [formGroup]="myForm">
+          <form [formGroup]="submenuForm">
             <div class="row">
               <div class="col-sm-8">
                 <div class="form-group">
                   <label>Submenu Name</label>
                   <input
                     type="text"
-                    formControlName="name"
-                    name="name"
-                    id="name"
+                    formControlName="submenuName"
+                    name="submenuName"
+                    id="submenuName"
                     class="form-control"
-                    placeholder="Foos Name"
+                    placeholder="Food Name"
                     required
                   />
                   <span
                     *ngIf="
                       submitted ||
-                      forms['name'].dirty ||
-                      (forms['name'].touched && forms['name'].invalid)
+                      forms['submenuName'].dirty ||
+                      (forms['submenuName'].touched &&
+                        forms['submenuName'].invalid)
                     "
                     class="info-msg text-danger"
                   >
                     <small
-                      *ngIf="forms['name'].errors && 
-                                                              forms['name'].errors?.['required']"
+                      *ngIf="forms['submenuName'].errors && 
+                                                              forms['submenuName'].errors?.['required']"
                     >
-                      Food name is required !
+                      Food submenuName is required !
                     </small>
-                    <small *ngIf="forms['name'].errors?.['minlength']">
-                      Food name must have atleast 3 characters !
+                    <small *ngIf="forms['submenuName'].errors?.['minlength']">
+                      Food submenuName must have atleast 3 characters !
                     </small>
 
-                    <small *ngIf="forms['name'].errors?.['maxlength']">
-                      Food nameshould not be more than 15 characters !
+                    <small *ngIf="forms['submenuName'].errors?.['maxlength']">
+                      Food submenuName should not be more than 15 characters !
                     </small>
                   </span>
                 </div>
@@ -79,42 +80,6 @@
                   </span>
                 </div>
               </div>
-              <div class="col-sm-8">
-                <div class="form-group">
-                  <label>submenu Id</label>
-                  <input
-                    type="text"
-                    formControlName="submenu"
-                    name="submenu"
-                    id="submenu"
-                    class="form-control"
-                    placeholder="submenu id"
-                    required
-                  />
-                  <span
-                    *ngIf="
-                      submitted ||
-                      forms['name'].dirty ||
-                      (forms['name'].touched && forms['name'].invalid)
-                    "
-                    class="info-msg text-danger"
-                  >
-                    <small
-                      *ngIf="forms['name'].errors && 
-                                                                forms['name'].errors?.['required']"
-                    >
-                      Food name is required !
-                    </small>
-                    <small *ngIf="forms['name'].errors?.['minlength']">
-                      Food name must have atleast 3 characters !
-                    </small>
-
-                    <small *ngIf="forms['name'].errors?.['maxlength']">
-                      Food nameshould not be more than 15 characters !
-                    </small>
-                  </span>
-                </div>
-              </div>
             </div>
 
             <div class="row">
@@ -122,7 +87,7 @@
                 <button
                   type="button"
                   class="mt-4 p-2 col-sm-8 btn btn-info"
-                  (click)="onAddSubmenu(myForm.value)"
+                  (click)="onAddSubmenu(submenuForm.value)"
                 >
                   Add
                 </button>

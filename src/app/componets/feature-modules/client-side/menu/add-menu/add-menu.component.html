@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-8">
-      <p class="float-start">Add  New Menu</p>
+      <p class="float-start">Add New Menu</p>
     </div>
   </div>
   <hr />
@@ -11,44 +11,47 @@
       <div class="row">
         <div class="col-sm-12">
           <form [formGroup]="menuForm">
-            <div class="col-sm-4">
-              <div class="form-group">
-                <label>Menu</label>
-                <input
-                  type="text"
-                  formControlName="menu"
-                  menu="menu"
-                  id="menu"
-                  class="form-control"
-                  placeholder="Enter the new menu"
-                  required
-                />
-                <span
-                  *ngIf="
-                    submitted ||
-                    forms['menu'].dirty ||
-                    (forms['menu'].touched && forms['menu'].invalid)
-                  "
-                  class="info-msg text-danger"
-                >
-                  <small
-                    *ngIf="forms['menu'].errors && 
-                                                              forms['menu'].errors?.['required']"
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group p-2">
+                  <input
+                    type="text"
+                    formControlName="foodMenu"
+                    name="foodMenu"
+                    id="foodMenu"
+                    class="form-control"
+                    placeholder="Enetr the name of Menu"
+                    required
+                    style="
+                      border: none;
+                      box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);
+                      height: 50px;
+                    "
+                  />
+                  <span
+                    *ngIf="
+                      submitted ||
+                      forms['foodMenu'].dirty ||
+                      (forms['foodMenu'].touched && forms['foodMenu'].invalid)
+                    "
+                    class="info-msg text-danger"
                   >
-                    Food menu is required !
-                  </small>
-                  <small *ngIf="forms['menu'].errors?.['minlength']">
-                    Food menu must have atleast 3 characters !
-                  </small>
-
-                  <small *ngIf="forms['menu'].errors?.['maxlength']">
-                    Food menus hould not be more than 15 characters !
-                  </small>
-                </span>
+                    <small
+                      *ngIf="forms['foodMenu'].errors && 
+                                    forms['foodMenu'].errors?.['required']"
+                    >
+                      *Menu is required !
+                    </small>
+                    <small *ngIf="forms['foodMenu'].errors?.['minlength']">
+                      *Menu must have atleast 3 characters !
+                    </small>
+                    <small *ngIf="forms['foodMenu'].errors?.['maxlength']">
+                      *Your foodMenu should not be more than 20 chracters !
+                    </small>
+                  </span>
+                </div>
               </div>
             </div>
-
-      
 
             <div class="row">
               <div class="col-sm-12">

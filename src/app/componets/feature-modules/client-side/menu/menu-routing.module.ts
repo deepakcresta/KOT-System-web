@@ -8,35 +8,31 @@ import { MenuComponent } from './menu.component';
 import { SubMenuComponent } from './sub-menu/sub-menu.component';
 
 const routes: Routes = [
-  { path: '',
-   component: MenuComponent 
-  }
-  ,
+  { path: '', component: MenuComponent },
   {
-    path:'add-menu',
-    component:AddMenuComponent
+    path: 'add-menu',
+    component: AddMenuComponent,
   },
   {
-    path:'edit-menu',
-    component:EditMenuComponent
+    path: 'edit-menu',
+    component: EditMenuComponent,
   },
   {
-    path:'add-submenu',
-    component:AddSubmenuComponent
+    path: 'add-submenu',
+    component: AddSubmenuComponent,
   },
   {
-    path:'edit-submenu',
-    component:EditSubmenuComponent
+    path: 'edit-submenu',
+    component: EditSubmenuComponent,
   },
   {
-    path:'sub-menu',
-    component:SubMenuComponent
+    path: 'submenu',
+    component: SubMenuComponent,
   },
-
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class MenuRoutingModule { }
+export class MenuRoutingModule {}

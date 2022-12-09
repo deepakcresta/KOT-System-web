@@ -1,4 +1,4 @@
-<section class="h-100 bg-dark">
+<!-- <section class="h-100 bg-dark">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col">
@@ -25,7 +25,7 @@
                         <input
                           type="text"
                           formControlName="firstName"
-                          name="firstName"
+                          customer="firstName"
                           id="firstName"
                           class="form-control"
                           placeholder=" First Name"
@@ -54,15 +54,15 @@
                           <small
                             *ngIf="forms['firstName'].errors?.['minlength']"
                           >
-                            *You name must have atleast 3 characters !
+                            *You customer must have atleast 3 characters !
                           </small>
                           <small
                             *ngIf="forms['firstName'].errors?.['maxlength']"
                           >
-                            *Your name should not be more than 60 chracters !
+                            *Your customer should not be more than 60 chracters !
                           </small>
                           <small *ngIf="forms['firstName'].errors?.['pattern']">
-                            *Your name should contain alphabet letters !
+                            *Your customer should contain alphabet letters !
                           </small>
                         </span>
                       </div>
@@ -72,7 +72,7 @@
                         <input
                           type="text"
                           formControlName="lastName"
-                          name="lastName"
+                          customer="lastName"
                           id="lastNamee"
                           class="form-control"
                           placeholder="Last Name"
@@ -122,7 +122,7 @@
                         <input
                           type="text"
                           formControlName="phoneNumber"
-                          name="phoneNumber"
+                          customer="phoneNumber"
                           class="form-control"
                           placeholder="Phone Number"
                           style="
@@ -172,7 +172,7 @@
                         <input
                           type="text"
                           formControlName="address"
-                          name="address"
+                          customer="address"
                           id="address"
                           class="form-control"
                           placeholder=" Address"
@@ -199,13 +199,13 @@
                             *Name is required !
                           </small>
                           <small *ngIf="forms['address'].errors?.['minlength']">
-                            *You name must have atleast 3 characters !
+                            *You customer must have atleast 3 characters !
                           </small>
                           <small *ngIf="forms['address'].errors?.['maxlength']">
-                            *Your name should not be more than 60 chracters !
+                            *Your customer should not be more than 60 chracters !
                           </small>
                           <small *ngIf="forms['address'].errors?.['pattern']">
-                            *Your name should contain alphabet letters !
+                            *Your customer should contain alphabet letters !
                           </small>
                         </span>
                       </div>
@@ -217,7 +217,7 @@
                         <input
                           type="email"
                           formControlName="email"
-                          name="email"
+                          customer="email"
                           class="form-control"
                           required
                           style="
@@ -262,7 +262,7 @@
                         <input
                           type="text"
                           formControlName="userName"
-                          name="userName"
+                          customer="userName"
                           id="userName"
                           class="form-control"
                           placeholder=" User Name"
@@ -291,15 +291,15 @@
                           <small
                             *ngIf="forms['userName'].errors?.['minlength']"
                           >
-                            *You name must have atleast 3 characters !
+                            *You customer must have atleast 3 characters !
                           </small>
                           <small
                             *ngIf="forms['userName'].errors?.['maxlength']"
                           >
-                            *Your name should not be more than 60 chracters !
+                            *Your customer should not be more than 60 chracters !
                           </small>
                           <small *ngIf="forms['userName'].errors?.['pattern']">
-                            *Your name should contain alphabet letters !
+                            *Your customer should contain alphabet letters !
                           </small>
                         </span>
                       </div>
@@ -311,7 +311,7 @@
                         <input
                           type="password"
                           formControlName="password"
-                          name="password"
+                          customer="password"
                           class="form-control"
                           required
                           style="
@@ -370,6 +370,237 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section> -->
+<section class="contact_section layout_padding" id="contact">
+  <div class="container">
+    <div class="heading_container">
+      <h2 style="margin-left: 50px">Register Form</h2>
+    </div>
+    <div class="form-container cols-md-4">
+      <form [formGroup]="contactForm" style="margin-left: 50px">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group p-2">
+              <input
+                type="text"
+                formControlName="customerName"
+                customer="customerName"
+                id="customerName"
+                class="form-control"
+                placeholder=" Customer Name"
+                required
+                style="
+                  border: none;
+                  box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);
+                  height: 50px;
+                "
+              />
+              <span
+                *ngIf="
+                  submitted ||
+                  forms['customerName'].dirty ||
+                  (forms['customerName'].touched &&
+                    forms['customerName'].invalid)
+                "
+                class="info-msg text-danger"
+              >
+                <small
+                  *ngIf="forms['customerName'].errors && 
+                                forms['customerName'].errors?.['required']"
+                >
+                  *Name is required !
+                </small>
+                <small *ngIf="forms['customerName'].errors?.['minlength']">
+                  *You customer must have atleast 3 characters !
+                </small>
+                <small *ngIf="forms['customerName'].errors?.['maxlength']">
+                  *Your customer should not be more than 60 chracters !
+                </small>
+                <small *ngIf="forms['customerName'].errors?.['pattern']">
+                  *Your customer should contain alphabet letters !
+                </small>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group p-2">
+              <input
+                type="text"
+                formControlName="phoneNumber"
+                customer="phoneNumber"
+                class="form-control"
+                placeholder="Phone Number"
+                style="
+                  border: none;
+                  box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);
+                  height: 50px;
+                "
+                required
+              />
+              <span
+                *ngIf="
+                  submitted ||
+                  forms['phoneNumber'].dirty ||
+                  (forms['phoneNumber'].touched && forms['phoneNumber'].invalid)
+                "
+                class="info-msg text-danger"
+              >
+                <small
+                  *ngIf="forms['phoneNumber'].errors && 
+                                forms['phoneNumber'].errors?.['required']"
+                >
+                  *Phone Number is required !
+                </small>
+                <small *ngIf="forms['phoneNumber'].errors?.['minlength']">
+                  *Phone Number should be 10 digits!
+                </small>
+                <small *ngIf="forms['phoneNumber'].errors?.['pattern']">
+                  * Phone number should contain nummeic value!
+                </small>
+                <small *ngIf="forms['phoneNumber'].errors?.['maxlength']">
+                  *Phone Number should not bemore than 10 digits!
+                </small>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group p-2 mt-4">
+              <input
+                type="email"
+                formControlName="email"
+                customer="email"
+                class="form-control"
+                required
+                style="
+                  border: none;
+                  box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);
+                  height: 50px;
+                "
+                placeholder="Email"
+              />
+              <span
+                *ngIf="
+                  submitted ||
+                  forms['email'].dirty ||
+                  (forms['email'].touched && forms['email'].invalid)
+                "
+                class="info-msg text-danger"
+              >
+                <small
+                  *ngIf="forms['email'].errors && 
+                                  forms['email'].errors?.['required']"
+                >
+                  * Email is required
+                </small>
+                <small *ngIf="forms['email'].errors?.['pattern']">
+                  *Invalid Email enter the valid email!
+                </small>
+                <small *ngIf="forms['email'].errors?.['minlength']">
+                  *Email should be atleast 8 characters!
+                </small>
+                <small *ngIf="forms['phoneNumber'].errors?.['maxlength']">
+                  *Email should not be more thab 80 characters!
+                </small>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group p-2 mt-4">
+              <input
+                type="password"
+                formControlName="password"
+                customer="password"
+                class="form-control"
+                required
+                style="
+                  border: none;
+                  box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);
+                  height: 50px;
+                "
+                placeholder="password"
+              />
+              <span
+                *ngIf="
+                  submitted ||
+                  forms['password'].dirty ||
+                  (forms['password'].touched && forms['password'].invalid)
+                "
+                class="info-msg text-danger"
+              >
+                <small
+                  *ngIf="forms['password'].errors && 
+                                  forms['password'].errors?.['required']"
+                >
+                  * password is required
+                </small>
+                <small *ngIf="forms['password'].errors?.['pattern']">
+                  *Invalid password enter the valid password!
+                </small>
+                <small *ngIf="forms['password'].errors?.['minlength']">
+                  *password should be atleast 8 characters!
+                </small>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group p-2">
+              <input
+                type="text"
+                formControlName="address"
+                customer="address"
+                class="form-control"
+                placeholder="address"
+                required
+                style="
+                  border: none;
+                  box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);
+                  height: 50px;
+                "
+                placeholder="Message"
+              />
+              <span
+                *ngIf="
+                  submitted ||
+                  forms['address'].dirty ||
+                  (forms['address'].touched && forms['address'].invalid)
+                "
+                class="info-msg text-danger"
+              >
+                <small
+                  *ngIf="forms['address'].errors && 
+                                  forms['address'].errors?.['required']"
+                >
+                  *It would be better if you leave a address !
+                </small>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="d-grid col-4 p-3">
+            <button
+              type="button"
+              class="mt-4 p-2 col-sm-8 btn btn-success"
+              (click)="onSendForm(contactForm.value)"
+            >
+              Send
+            </button>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
 </section>

@@ -7,7 +7,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { ClientService } from '../../services/clientside.service';
+import { MenuService } from '../service/menu.service';
 
 @Component({
   selector: 'app-add-submenu',
@@ -15,53 +15,52 @@ import { ClientService } from '../../services/clientside.service';
   styleUrls: ['./add-submenu.component.scss'],
 })
 export class AddSubmenuComponent implements OnInit {
-  isSubmitting: boolean | undefined;
-  myForm: FormGroup = new FormGroup({});
+  isSubmitted: boolean | undefined;
+  submenuForm: FormGroup = new FormGroup({});
   submitted: boolean | undefined;
 
   constructor(
-    private addmenuService: ClientService,
+    private addSubmenuService: MenuService,
     private router: Router,
     private formBuilder: FormBuilder
   ) {}
 
   ngOnInit(): void {
-    this.myForm = this.formBuilder.group({
-      name: [
+    this.submenuForm = this.formBuilder.group({
+      submenuName: [
         '',
         [
           Validators.required,
-          Validators.maxLength(10),
+          Validators.maxLength(20),
           Validators.minLength(3),
           Validators.pattern('^[a-z]$'),
         ],
       ],
       price: [
         '',
-        Validators.required,
-        Validators.maxLength(10),
-        Validators.minLength(3),
+        [Validators.required, Validators.maxLength(5), Validators.minLength(3)],
       ],
     });
   }
 
   get forms(): { [key: string]: AbstractControl } {
-    return this.myForm.controls;
+    return this.submenuForm.controls;
   }
-
-  onAddSubmenu(item: any) {
-    this.submitted = true;
-    console.log(item);
-    if (this.myForm.valid) {
-      this.addmenuService.addMenu(item).subscribe(
-        (response: any) => {
-          this.isSubmitting = false;
-        },
-        (error: any) => {
-          this.isSubmitting = false;
-        }
-      );
-    } else {
-    }
+  onAddSubmenu(submenu: any) {
+    this.isSubmitted = true;
+    console.log(submenu);
+    // if (this.submenuForm.valid) {
+    this.addSubmenuService.addSubmenu(submenu).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.isSubmitted = false;
+        console.log('Submenu Added Successfully');
+      },
+      (error: any) => {
+        this.isSubmitted = false;
+        console.log('Error on adding the submenu');
+      }
+    );
   }
+  // }
 }

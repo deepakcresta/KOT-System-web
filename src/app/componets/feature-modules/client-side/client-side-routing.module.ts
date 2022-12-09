@@ -6,7 +6,6 @@ import { HomeComponent } from './home/home.component';
 import { OrderFormComponent } from './order-form/order-form.component';
 import { OrderComponent } from './order/order.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { TodaysSpecialComponent } from './todays-special/todays-special.component';
 
 const routes: Routes = [
   // {
@@ -18,7 +17,11 @@ const routes: Routes = [
   //   path:'order-item',
   //   component:OrderItemComponent
   // },
-
+  {
+    path: '',
+    redirectTo: 'client-side',
+    pathMatch: 'full',
+  },
   {
     path: 'home',
     component: HomeComponent,
@@ -35,10 +38,7 @@ const routes: Routes = [
     path: 'contact-us',
     component: ContactUsComponent,
   },
-  {
-    path: 'todays-special',
-    component: TodaysSpecialComponent,
-  },
+
   {
     path: 'sidebar',
     component: SidebarComponent,
@@ -51,6 +51,13 @@ const routes: Routes = [
   {
     path: 'menu',
     loadChildren: () => import('./menu/menu.module').then((m) => m.MenuModule),
+  },
+  {
+    path: 'today-special',
+    loadChildren: () =>
+      import('./today-sepecial/today-sepecial.module').then(
+        (m) => m.TodaySepecialModule
+      ),
   },
 ];
 

@@ -11,7 +11,6 @@ import { SubMenuResponseListModel } from '../models/submenu-list-response-model'
 export class SubMenuComponent implements OnInit {
   submenuResponse: Array<SubMenuResponseListModel> =
     new Array<SubMenuResponseListModel>();
-  // menuResponse:any;
   submenu: any;
 
   constructor(private router: Router, private submenuService: MenuService) {}
@@ -35,5 +34,9 @@ export class SubMenuComponent implements OnInit {
   order() {}
   orderFood() {
     this.router.navigate(['feature-modules/client-side/order-food']);
+  }
+
+  addSubMenu() {
+    this.router.navigate(['feature-modules/client-side/menu/add-submenu']);
   }
 }

@@ -1,0 +1,51 @@
+<section class="bg-light py-4 my-5">
+  <div class="container">
+    <div class="container d-flex justify-content-center">
+      <div class="row row-cols-1 row-cols-md-3 mt-5 w-100 h-50">
+        <div class="col mb-4" *ngFor="let todaySpecial of todaySpecialList">
+          <div
+            class="card mx-2"
+            style="border: 4px solid #29676d; border-radius: 12px"
+          >
+            <div class="card-thumbnail">
+              <img
+                src="\assets\images\momo.jpg"
+                class="img-fluid"
+                alt="thumbnail"
+              />
+            </div>
+            <div class="card-body">
+              <h5 class="card-text">
+                Name:
+                <span style="opacity: 80%">{{
+                  todaySpecial.todaySpecialDish
+                }}</span>
+              </h5>
+              <h5 class="card-text">
+                Price:
+                <span style="opacity: 80%">Rs. {{ todaySpecial.price }}</span>
+              </h5>
+              <div class="card-body">
+                <h3 class="card-title">
+                  <a href="#" class="text-info">Tandori</a>
+                </h3>
+                <p class="card-text">
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text
+                </p>
+              </div>
+              <button
+                class="btn mt-2 w-100"
+                style="border: 3px solid #aabbcd"
+                (click)="onAddTodaySpecial()"
+              >
+                Order
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -8,6 +8,11 @@ const routes: Routes = [
     component: FeatureModulesComponent,
   },
   {
+    path: '',
+    redirectTo: 'feature-modules',
+    pathMatch: 'full',
+  },
+  {
     path: 'client-side',
     loadChildren: () =>
       import('./client-side/client-side.module').then(

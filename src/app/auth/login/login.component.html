@@ -15,11 +15,11 @@
                       <div class="form-group p-2">
                         <input
                           type="text"
-                          formControlName="userName"
-                          name="userName"
-                          id="userName"
+                          formControlName="email"
+                          name="email"
+                          id="email"
                           class="form-control"
-                          placeholder=" User Name"
+                          placeholder=" Email"
                           required
                           style="
                             border: none;
@@ -30,29 +30,24 @@
                         <span
                           *ngIf="
                             submitted ||
-                            forms['userName'].dirty ||
-                            (forms['userName'].touched &&
-                              forms['userName'].invalid)
+                            forms['email'].dirty ||
+                            (forms['email'].touched && forms['email'].invalid)
                           "
                           class="info-msg text-danger"
                         >
                           <small
-                            *ngIf="forms['userName'].errors && 
-                                          forms['userName'].errors?.['required']"
+                            *ngIf="forms['email'].errors && 
+                                          forms['email'].errors?.['required']"
                           >
                             *Name is required !
                           </small>
-                          <small
-                            *ngIf="forms['userName'].errors?.['minlength']"
-                          >
+                          <small *ngIf="forms['email'].errors?.['minlength']">
                             *You name must have atleast 3 characters !
                           </small>
-                          <small
-                            *ngIf="forms['userName'].errors?.['maxlength']"
-                          >
+                          <small *ngIf="forms['email'].errors?.['maxlength']">
                             *Your name should not be more than 60 chracters !
                           </small>
-                          <small *ngIf="forms['userName'].errors?.['pattern']">
+                          <small *ngIf="forms['email'].errors?.['pattern']">
                             *Your name should contain alphabet letters !
                           </small>
                         </span>
@@ -109,8 +104,20 @@
                       class="mt-4 p-2 col-sm-8 btn btn-secondary"
                       (click)="onLoginForm(loginForm.value)"
                     >
-                      Send
+                      Login
                     </button>
+                  </div>
+                  <div class="col-auto" routerLink="/auth/register">
+                    <div class="form-check mb-2">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="autoSizingCheck"
+                      />
+                      <label class="form-check-label" for="autoSizingCheck">
+                        Register
+                      </label>
+                    </div>
                   </div>
                 </form>
               </div>
